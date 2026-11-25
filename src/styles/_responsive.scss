@@ -1,0 +1,8 @@
+@use "sass:math";
+
+$mobile-breakpoint: 700px;
+$mobile-design-width: 375px;
+
+@function vw($design-size) {
+  @return math.div($design-size, $mobile-design-width) * 100vw;
+}

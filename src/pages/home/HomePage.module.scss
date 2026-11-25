@@ -1,0 +1,47 @@
+@use "sass:color";
+@use "@/styles/layout";
+@use "@/styles/responsive";
+@use "@/styles/tokens";
+
+.workspace {
+  @include layout.content-container;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(42%, 400px));
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+  padding-block: clamp(48px, 8vh, 104px);
+
+  @media (max-width: responsive.$mobile-breakpoint) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(24px, responsive.vw(32px), 40px);
+    padding-block: clamp(36px, responsive.vw(38px), 64px);
+  }
+}
+
+.heroMark {
+  display: block;
+  inline-size: 108px;
+  block-size: auto;
+  border-radius: 25px;
+  outline: 1px solid color.change(tokens.$color-accent, $alpha: 0.33333);
+  margin-block-end: 34px;
+
+  @media (max-width: responsive.$mobile-breakpoint) {
+    inline-size: clamp(64px, responsive.vw(78px), 96px);
+    border-radius: clamp(16px, responsive.vw(19px), 24px);
+    margin-block-end: clamp(22px, responsive.vw(28px), 36px);
+  }
+}
+
+.intro {
+  h1 {
+    font-size: clamp(2.25rem, 6vw, 4.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.06em;
+
+    @media (max-width: responsive.$mobile-breakpoint) {
+      font-size: clamp(2rem, responsive.vw(28px), 3rem);
+    }
+  }
+}

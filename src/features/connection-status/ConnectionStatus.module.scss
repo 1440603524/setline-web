@@ -1,0 +1,92 @@
+@use "@/styles/responsive";
+@use "@/styles/tokens";
+
+.card {
+  border: 1px solid tokens.$color-border;
+  border-radius: 18px;
+  background: #19241e;
+  padding: clamp(20px, 4vw, 28px);
+  box-shadow: 0 20px 60px #0003;
+
+  @media (max-width: responsive.$mobile-breakpoint) {
+    padding: clamp(18px, responsive.vw(20px), 28px);
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  h2 {
+    font-size: 1.125rem;
+  }
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: tokens.$color-muted;
+  font-size: 0.875rem;
+  white-space: nowrap;
+
+  &::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  &[data-state="ok"] {
+    color: tokens.$color-accent;
+  }
+
+  &[data-state="error"] {
+    color: #ffb9a9;
+  }
+}
+
+.result {
+  margin-block: 20px;
+  padding: 16px;
+  overflow-wrap: anywhere;
+  background: #111a15;
+  border-radius: 10px;
+
+  @media (max-width: responsive.$mobile-breakpoint) {
+    margin-block: clamp(16px, responsive.vw(20px), 24px);
+    padding: clamp(12px, responsive.vw(16px), 20px);
+  }
+
+  p {
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  code {
+    font-size: 0.8125rem;
+    color: tokens.$color-muted;
+  }
+}
+
+.checkButton {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 9px;
+  background: tokens.$color-accent;
+  color: #14220a;
+  font-weight: 700;
+
+  &:hover:not(:disabled) {
+    background: #d3ff9e;
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.55;
+  }
+}

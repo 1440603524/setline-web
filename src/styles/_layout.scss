@@ -1,0 +1,11 @@
+@use "responsive";
+
+@mixin content-container {
+  inline-size: min(100% - 48px, 980px);
+  margin-inline: auto;
+
+  @media (max-width: responsive.$mobile-breakpoint) {
+    $gutters: clamp(32px, responsive.vw(40px), 48px);
+    inline-size: min(100% - $gutters, 460px);
+  }
+}

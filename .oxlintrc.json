@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "oxc", "react"],
+  "ignorePatterns": ["dist", ".vercel"],
+  "rules": {
+    "eslint/func-style": [
+      "error",
+      "expression",
+      { "overrides": { "namedExports": "expression" } }
+    ],
+    "eslint/prefer-arrow-callback": "error",
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
+    ],
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "error",
+    "typescript/consistent-type-definitions": ["error", "type"]
+  }
+}
